@@ -1,0 +1,64 @@
+{% load blog_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %}</title>
+<link rel='stylesheet' href="{% static "css/woocommerce-layout.css"%}" type='text/css' media='all'/>
+<link rel='stylesheet' href="{% static "css/woocommerce-smallscreen.css"%}" type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href="{% static "css/woocommerce.css"%}" type='text/css' media='all'/>
+<link rel='stylesheet' href="{% static "css/font-awesome.min.css"%}" type='text/css' media='all'/>
+<link rel='stylesheet' href="{% static "css/style.css"%}" type="text/css" media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href="{% static "css/easy-responsive-shortcodes.css"%}" type='text/css' media='all'/>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+	<div class="container">
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="index.html" rel="home">Blug</a></h1>
+			<h2 class="site-description">This is my blog. I've written {% total_posts %} posts so far.</h2>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle">Menu</button>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<div class="menu-menu-1-container">
+			<ul id="menu-menu-1" class="menu">
+				<li><a href="{% url 'blog:post_list' %}">Home</a></li>
+				<li><a href="{% url 'blog:post_search' %}">Search Post</a></li>	
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+		</header>
+		<!-- #masthead -->
+		<div id="content" class="site-content">
+                    {% block content %}
+                    {% endblock %}
+		</div>
+		<!-- #content -->
+	</div>
+	<!-- .container -->
+	    </br>
+	    </br>
+	<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="site-info">
+			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Blug</h1>
+			 {% comment %} <a target="blank" href="https://www.wowthemes.net/">&copy; Moschino - Free HTML Template by WowThemes.net</a> {% endcomment %}
+		</div>
+	</div>	
+	</footer>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<script src="{% static "js/jquery.js"%}"></script>
+<script src="{% static "js/plugins.js"%}"   ></script>
+<script src="{% static "js/scripts.js"%}"   ></script>
+<script src="{% static "js/masonry.pkgd.min.js"%}"></script>
+</body>
+</html>

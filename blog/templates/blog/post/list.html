@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load blog_tags %}
+
+{% block title %}My blog{% endblock  %}
+{% block content %}
+<div id="primary" class="content-area column full">
+<main id="main" class="site-main">
+{% if tag %}
+  <h2>Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
+<div class="grid portfoliogrid">
+{% for post in posts %}
+        <article class="hentry">
+            <header class="entry-header">
+            <div class="entry-thumbnail">
+            <a href="{{post.get_absolute_url}}"><img src="{{post.cover_photo}}" alt="p1"/></a>
+                </div>
+                    <h2 class="entry-title"><a href="{{post.get_absolute_url}}" rel="bookmark">{{post.title}}</a></h2>
+                    {% for tag in post.tags.all %}
+                        <a class='portfoliotype' href="{% url "blog:post_list_by_tag" tag.slug %}">{{tag}}</a>      
+                    {% endfor %}
+
+                    <p class="date">Published {{post.publish}} by {{post.author}} </p>
+            </header>
+        </article>
+    {% endfor %}
+</div>
+<br/>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+{% include "blog/pagination.html"  with page=posts %}
+    
+    {% comment %} {{ post.body|truncatewords:30|linebreaks }} {% endcomment %}
+
+{% endblock  %}

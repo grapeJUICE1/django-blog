@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+{% block title %}Share a post{% endblock %}
+{% block content %}
+<div id="primary" class="content-area column two-thirds">
+<main id="main" class="site-main">
+  {% if sent %}
+    <h1>E-mail successfully sent</h1>
+    <p>
+      "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+    </p>
+  {% else %}
+    <h1>Share "{{ post.title }}" by e-mail</h1>
+    <div class="form">
+    <form method="post" class="wpcf7">
+     {% for field in form %}
+  <div>
+    {{ field.errors }}
+    <br/>
+    {{ field.label_tag }} 
+    {{ field }}
+  </div>
+{% endfor %}
+      {% csrf_token %}
+      <input type="submit" value="Send e-mail">
+    </form>
+  
+    </div>
+    </br>
+  
+  {% endif %}
+  				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+  			{% show_latest_posts 3 %}
+{% endblock %}

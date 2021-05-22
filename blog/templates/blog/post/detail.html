@@ -1,0 +1,84 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<div id="primary" class="content-area column two-thirds">
+<main id="main" class="site-main">
+  <h1>{{ post.title }}</h1>
+  <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+  </p>
+  <img src="{{post.cover_photo}}" alt="p1"/>
+{{ post.body|markdown }}
+  <p>
+  </br>
+  </br>
+  <a href="{% url "blog:post_share" post.id %}" >
+    Share this post
+  </a>
+</p>
+
+  </br>
+  </br>
+<div id="comments">
+{% with comments.count as total_comments %}
+  <h2 class="comments-title">
+    {{ total_comments }} comment{{ total_comments|pluralize }}
+  </h2>
+{% endwith %}
+<ul class="comment-list">
+{% for comment in comments %}
+  <li id="comm">
+    <article>
+
+    <div class="comment-author vcard">
+        <img alt="" src="https://secure.gravatar.com/avatar/bfd316934817aee6cdcb31a6c668a3b1?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/bfd316934817aee6cdcb31a6c668a3b1?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">
+    </div>
+    <div class="comment-content">
+    
+        <footer class="comment-meta">
+            <div>
+                <cite class="fn">
+                <p>{{comment.name}}</p>
+                </cite>
+            </div>
+
+            <div class="comment-meta-details">
+                <span class="comment-meta-time"> {{ comment.created }}</span>
+            </div>
+        </footer>
+
+           <p>{{ comment.body|linebreaks }}</p>
+
+    </div>
+
+    </article>
+    {% comment %} <p class="info">
+      Comment {{ forloop.counter }} by {{ comment.name }}
+     
+    </p>
+    {{ comment.body|linebreaks }} {% endcomment %}
+  </li>
+{% empty %}
+  <p>There are no comments yet.</p>
+{% endfor %}
+</ul>
+</div>
+{% if new_comment %}
+  <h2>Your comment has been added.</h2>
+{% endif %}
+  <h2>Add a new comment</h2>
+      <div class="form">
+  <form method="post" class="wpcf7">
+ 
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+  </form>
+  </div>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+  			{% show_latest_posts 3 %}
+{% endblock %}
