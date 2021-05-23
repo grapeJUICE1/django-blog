@@ -1007,9 +1007,10 @@ a.button {
 	color:#fff;
 	font-size:18px;
 	margin:0 0 1em;
-	padding:3% 5%;
+	padding:0.5% 1%;
 	text-align:center;
 	width: 100%;
+	background-color: #e87777;
 }
 /* Text Align */
 .left {

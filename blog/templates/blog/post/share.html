@@ -5,11 +5,9 @@
 <div id="primary" class="content-area column two-thirds">
 <main id="main" class="site-main">
   {% if sent %}
-    <h1>E-mail successfully sent</h1>
-    <p>
-      "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
-    </p>
-  {% else %}
+  		<div class="alert">"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}. <a onclick="closeAlert()">x</a></div>
+
+   {% endif %}
     <h1>Share "{{ post.title }}" by e-mail</h1>
     <div class="form">
     <form method="post" class="wpcf7">
@@ -28,7 +26,7 @@
     </div>
     </br>
   
-  {% endif %}
+ 
   				</main>
 				<!-- #main -->
 			</div>
