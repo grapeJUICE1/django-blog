@@ -6,8 +6,11 @@ environ.Env.read_env()
 
 # environment variables
 DB_USER = env("DB_USER")
+DB_NAME = env("DB_NAME")
 DB_PASSWORD = env("DB_PASSWORD")
+DB_PORT = env("DB_PORT")
 EMAIL_ADRESS = env("EMAIL_ADRESS")
+EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_PASSWORD = env("EMAIL_PASSWORD")
 
 
@@ -80,10 +83,10 @@ WSGI_APPLICATION = "blug.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blog",
-        "USER": "blog",
-        "PASSWORD": "1thek17",
-        "PORT": "5433",
+        "NAME": DB_NAME,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD,
+        "PORT": DB_PORT,
     }
 }
 
@@ -130,8 +133,8 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "abraraar93@gmail.com"
-EMAIL_HOST_PASSWORD = "Passchange12345"
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_ADRESS
+EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

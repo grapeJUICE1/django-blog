@@ -93,6 +93,7 @@ a img {
 			float:left;
 			margin-bottom:0;
 			padding:0 15px;
+			padding-right: 30px;
 	}
 	.column.full {
 		width:100%;
@@ -254,6 +255,16 @@ img {
 	/* Make sure images are scaled correctly. */
 	max-width:100%;
 	/* Adhere to container width. */
+}
+.list-img{
+
+		width:200px;
+		height:200px;
+	 
+	 /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+		 -o-object-fit:scale-down;
+			object-fit:scale-down;
+	
 }
 ul,ol {
 	margin:0 0 1.5em 3em;
@@ -657,6 +668,7 @@ a:active,a:focus {
 /*--------------------------------------------------------------11.0 Site Content--------------------------------------------------------------*/
 #primary,#secondary {
 	padding-top: 2em;
+
 }
 /*--------------------------------------------------------------11.1 Posts and pages--------------------------------------------------------------*/
 .sticky {
