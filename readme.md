@@ -56,4 +56,19 @@ then visit to http://127.0.0.1:8000/blog/ and you should see the website
 
 # Screenshots
 
+![](https://github.com/grapeJUICE1/django-blog/blob/master/screenshots/website.gif?raw=true)
 
+home
+![](https://github.com/grapeJUICE1/django-blog/blob/master/screenshots/home.png?raw=true)
+
+single post
+
+![](https://github.com/grapeJUICE1/django-blog/blob/master/screenshots/singlePost.png?raw=true)
+
+comments
+
+![](https://github.com/grapeJUICE1/django-blog/blob/master/screenshots/comments.png?raw=true)
+
+share post
+
+![](https://github.com/grapeJUICE1/django-blog/blob/master/screenshots/sharePost.png?raw=true)
