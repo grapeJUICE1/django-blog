@@ -3,7 +3,6 @@
 <p align="center">A simple blog made with django </p>
 
 # Features
-Well there aren't a lot of features cause this is my first django application :) , but 
 
 * admin can create post
 * user can see posts 
